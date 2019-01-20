@@ -1,0 +1,235 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+
+    <title>Hello, world!</title>
+    <style>
+
+    body{
+
+    	background-color: #343A40;
+    	color: white;
+    }
+    	
+.media{
+	margin-bottom: 30px;
+}
+
+.mr3{
+	height: 54px;
+	width: 54px;
+	border-radius: 50%;
+}
+
+.ml3{
+	height: 54px;
+	width: 54px;
+	border-radius: 50%;
+}
+
+#commenter{
+	
+	text-align: right;
+	padding-top: 15px;
+	margin-bottom:15px;
+}
+
+
+
+span{
+	position: relative;
+	float: right;
+}
+
+.title{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	font-family: 'Coiny', cursive;
+	font-size: 40px;
+	height: 80px;
+}
+
+    	
+
+    	
+     </style>
+  </head>
+  <body>
+
+  	<div class="title type" >
+
+  		  
+
+  	</div>
+    
+
+
+<div class="container">
+	
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/oZzQC8NVTeM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+  <div class="row">
+  	<div class="col-md-12">
+<h1>Comments</h1>
+</div>
+
+</div>
+</div>
+
+
+
+	<div class="container" id="commenter">
+    
+  
+  <textarea class="form-control form-rounded" rows="3" placeholder="Enter your comment here..." id="IDtag"></textarea>
+  
+  <br>
+
+  <button type="button" class="btn btn-info" id="check">Comment</button>
+
+  <br>
+
+</div>
+
+
+
+
+<div class="container" id="commentContainer">
+<div class="media shadow p-4 mb-4" >
+  <img class="mr-3" src="user.png" alt="Generic placeholder image" >
+  <div class="media-body">
+    <h5 class="mt-0">User 1 <span class="badge badge-danger">under review</span></h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+
+<div class="media shadow p-4 mb-4"  >
+  <div class="media-body">
+    <h5 class="mt-0 mb-1">User 2</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+  <img class="ml-3" src="user.png" alt="Generic placeholder image" >
+</div>
+
+<div class="media shadow p-4 mb-4" >
+  <img class="mr-3" src="user.png" alt="Generic placeholder image" >
+  <div class="media-body">
+    <h5 class="mt-0">User 3</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/myadvobuck/static/libs/typed.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+    <script>
+
+var co=3;
+
+    	$(document).ready(function(){
+    $('#check').on('click',function(){
+        var IDnum = $("#IDtag").val();
+          
+        if(IDnum == ""){
+        	alert("Please put some Text")
+        }else{
+        	co = co +1;
+        	$.ajax({
+    type : "POST",
+    url : "http://localhost:5000/",
+    data: JSON.stringify(IDnum),
+    contentType: 'application/json;charset=UTF-8',
+    success: function(result) {
+    	var danger = '<span class="badge badge-danger">under review</span>';
+    	
+
+    	var clause1 = '<div class="media shadow p-4 mb-4"  ><div class="media-body"><h5 class="mt-0 mb-1">User '
+          var content = IDnum;
+          var clause2 = '</div><img class="ml-3" src="user.png" alt="Generic placeholder image" ></div>'
+          var ender = '</h5>';
+          var comment1 = clause1 + co + danger + ender + content + clause2;
+          var comment3 = clause1 + co + ender + content + clause2;
+
+          var clause3 = '<div class="media shadow p-4 mb-4" ><img class="mr-3" src="user.png" alt="Generic placeholder image" ><div class="media-body"><h5 class="mt-0">User '
+          var clause4 = '</div></div>'
+
+          var comment2 = clause3 + co + danger + ender + content + clause4;
+          var comment4 = clause3 + co  + ender + content + clause4;
+
+
+ 			
+    	if(result < 0.4){
+          
+            if(co%2 == 0){
+            	$("#commentContainer").prepend(comment1);
+            }
+
+            if(co%2 == 1){
+            	$("#commentContainer").prepend(comment2);
+            }
+          	
+
+          	
+
+    	}else{
+
+    		if(co%2 == 0){
+            	$("#commentContainer").prepend(comment3);
+            }
+
+            if(co%2 == 1){
+            	$("#commentContainer").prepend(comment4);
+            }
+
+    	}
+
+
+
+    	//console.log(result)
+        
+    }
+});
+        }
+
+        //alert (IDnum);
+
+        
+    });
+
+var typed = new Typed(".type", {
+  strings: ["","presenting to you","an AI that has your back...","<b>SENTINEL</b>"],
+  typeSpeed: 110,
+  backSpeed: 110,
+  loop:1
+
+
+});
+    
+});
+    	
+
+    </script>
+
+  </body>
+</html>
