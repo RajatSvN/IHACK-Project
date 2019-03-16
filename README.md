@@ -1,4 +1,4 @@
-# IHACK-Winner-Project(Software Track). Ihack was conducted at IIT Bomabay
+# IHACK-Winner-Project(Software Track)
 
 #Running the Web project
 
